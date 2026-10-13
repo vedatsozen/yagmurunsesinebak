@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAĞMURUN SESİNE BAK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+<i class="text-white bi bi-volume-up-fill text-4xl fixed top-5 right-5 cursor-pointer" id="volume-icon"></i>
+
+<audio id="audio" src="audio/yagmur.mp3" autoplay loop></audio>
+
+<header class="h-screen w-screen flex flex-col justify-center items-center gap-5">
+
+    <p class="text-xl text-white tracking-widest">Click the volume icon to toggle mute</p>
+    <p class="text-xl text-white tracking-widest bg-black text-white p-4">Sesi açıp kapatmak için ses simgesine tıklayın</p>
+
+</header>
+
+</body>
+
+<script>
+    
+    $(document).ready(function() {
+        var audio = document.getElementById('audio');
+        audio.volume = 0.2; // Set volume to 30%
+    });
+
+    $('#volume-icon').click(function() {
+
+        var audio = document.getElementById('audio');
+
+        if (audio.muted) {
+            audio.muted = false;
+
+            $('#volume-icon').removeClass('bi-volume-mute-fill').addClass('bi-volume-up-fill');
+        } else {
+            audio.muted = true;
+
+            $('#volume-icon').removeClass('bi-volume-up-fill').addClass('bi-volume-mute-fill');
+        }
+    });
+
+</script>
